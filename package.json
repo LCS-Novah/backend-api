@@ -1,0 +1,23 @@
+{
+  "name": "custom-api-and-error-handling-ep-8",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "keywords": [
+    "javascript",
+    "backend",
+    "nodejs",
+    "express",
+    "api",
+    "chai",
+    "testing",
+    "rest-api",
+    "error-handling"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
