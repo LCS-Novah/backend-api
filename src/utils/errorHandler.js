@@ -14,7 +14,7 @@
 
 
 class ErrorHandler extends Error {
-  constructor(message = "Something went wrong", statusCode = 500,errors=[],statck="") {
+  constructor(message = "Something went wrong", statusCode = 500,errors=[],stack="") {
     super(message);
     this.statusCode = statusCode;
     this.errors = errors;
@@ -23,7 +23,7 @@ class ErrorHandler extends Error {
     this.success = false;
 
     if (statck) {
-      this.stack = statck;
+      this.stack = stack;
     }
     else{
       Error.captureStackTrace(this, this.constructor); 
