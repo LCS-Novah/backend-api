@@ -19,10 +19,10 @@ class ErrorHandler extends Error {
     this.statusCode = statusCode;
     this.errors = errors;
     this.data = null;
-    this.stack = statck;
+    this.stack = stack;
     this.success = false;
 
-    if (statck) {
+    if (stack) {
       this.stack = stack;
     }
     else{

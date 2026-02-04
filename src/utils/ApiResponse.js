@@ -1,3 +1,7 @@
+// Standard response format
+// 👉 Keeps API responses consistent
+
+
 class ApiResponse {
   constructor(statusCode, data = null, message = "Success") {
     this.success = statusCode < 400;

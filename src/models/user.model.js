@@ -3,6 +3,14 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 
+// Model
+// Data + data-related logic
+// Model: knows how to hash, compare, generate tokens
+
+// Controller: decides when to do it
+
+// app.js: wires things together, no business logic
+
 const userSchema = new Schema(
   {
     username:{
@@ -29,6 +37,7 @@ const userSchema = new Schema(
     password:{
       type: String,
       required: true,
+      select : false, // do not return password field by default in queries
     },
     avatar:{
       type: String,
@@ -44,13 +53,18 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref : 'Video',
     } 
-    ]
+    ],
+    refreshToken :{
+      type: String,
+      default: null,
+      required: false,
+    }
   },
   { timestamps: true }
 );
-
+// hashing password before saving user document
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
+  if (!this.isModified("password")) {   // if password is not modified, skip hashing
     return next();
   }
   const salt = await bcrypt.genSalt(10);
