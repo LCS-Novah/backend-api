@@ -14,6 +14,7 @@ app.use(express.json({extended:true,limit:"16kb"}))
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 app.use(express.cookieParser())
+app.use()
 
 
 export default app;

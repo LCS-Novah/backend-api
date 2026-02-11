@@ -86,6 +86,17 @@ userSchema.methods.generateAcesssToken = function () {
   );
 }
 
+
+// The secret key is only used to sign the token, not stored inside it.
+
+// Think of it like:
+
+// JWT = sealed envelope
+
+// SECRET_KEY = wax seal stamp
+
+// When verifying, we check if the seal matches the stamp, but the seal itself doesn't contain the stamp.
+
 userSchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     { 
